@@ -58,14 +58,14 @@ def main():
     ]
 
     res = [
-        ("po", "pods", ["g", "d", "rm", "e"], None),
-        ("dep", "deployment", ["g", "d", "rm", "e"], None),
-        ("svc", "service", ["g", "d", "rm", "e"], None),
-        ("ing", "ingress", ["g", "d", "rm", "e"], None),
-        ("cm", "configmap", ["g", "d", "rm", "e"], None),
-        ("sec", "secret", ["g", "d", "rm", "e"], None),
-        ("no", "nodes", ["g", "d", "e"], ["sys"]),
-        ("ns", "namespaces", ["g", "d", "rm", "e"], ["sys"]),
+        ("po", "pods", ["g", "d", "rm", "ed"], None),
+        ("dep", "deployment", ["g", "d", "rm", "ed"], None),
+        ("svc", "service", ["g", "d", "rm", "ed"], None),
+        ("ing", "ingress", ["g", "d", "rm", "ed"], None),
+        ("cm", "configmap", ["g", "d", "rm", "ed"], None),
+        ("sec", "secret", ["g", "d", "rm", "ed"], None),
+        ("no", "nodes", ["g", "d", "ed"], ["sys"]),
+        ("ns", "namespaces", ["g", "d", "rm", "ed"], ["sys"]),
         ("c", "config", ["uc", "cc", "sc", "dc"], None),
     ]
 
