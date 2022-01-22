@@ -94,6 +94,7 @@ instead of aliases, so that pressing space shows the full command before executi
   * **`k`**:`kustomize`
   * **`ex`**: `exec -i -t`
   * **`lo`**: `logs -f`
+  * **`ed`**: `edit`
 * resources:
   * **`po`**=pod, **`dep`**=`deployment`, **`ing`**=`ingress`,
     **`svc`**=`service`, **`cm`**=`configmap`, **`sec`**=`secret`,

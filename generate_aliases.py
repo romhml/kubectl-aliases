@@ -45,18 +45,25 @@ def main():
         ('d', 'describe', None, None),
         ('rm', 'delete', None, None),
         ('run', 'run --rm --restart=Never --image-pull-policy=IfNotPresent -i -t', None, None),
+        ('ed', 'edit', None, None),
+        ('uc', 'use-context', None, None),
+        ('cc', 'current-context', None, None),
+        ('sc', 'set-context', None, None),
+        ('dc', 'delete-context', None, None),
         ]
 
     res = [
-        ('po', 'pods', ['g', 'd', 'rm'], None),
-        ('dep', 'deployment', ['g', 'd', 'rm'], None),
-        ('svc', 'service', ['g', 'd', 'rm'], None),
-        ('ing', 'ingress', ['g', 'd', 'rm'], None),
-        ('cm', 'configmap', ['g', 'd', 'rm'], None),
-        ('sec', 'secret', ['g', 'd', 'rm'], None),
-        ('no', 'nodes', ['g', 'd'], ['sys']),
-        ('ns', 'namespaces', ['g', 'd', 'rm'], ['sys']),
+        ('po', 'pods', ['g', 'd', 'rm', 'e'], None),
+        ('dep', 'deployment', ['g', 'd', 'rm', 'e'], None),
+        ('svc', 'service', ['g', 'd', 'rm', 'e'], None),
+        ('ing', 'ingress', ['g', 'd', 'rm', 'e'], None),
+        ('cm', 'configmap', ['g', 'd', 'rm', 'e'], None),
+        ('sec', 'secret', ['g', 'd', 'rm', 'e'], None),
+        ('no', 'nodes', ['g', 'd', 'e'], ['sys']),
+        ('ns', 'namespaces', ['g', 'd', 'rm', 'e'], ['sys']),
+        ('c', 'config', ['uc', 'cc', 'sc', 'dc'], None)
         ]
+
     res_types = [r[0] for r in res]
 
     args = [
@@ -73,10 +80,14 @@ def main():
 
     # these accept a value, so they need to be at the end and
     # mutually exclusive within each other.
-    positional_args = [('f', '--recursive -f', ['g', 'd', 'rm'], res_types + ['all'
-                       , 'l', 'sys']), ('l', '-l', ['g', 'd', 'rm'], ['f',
-                       'all']), ('n', '--namespace', ['g', 'd', 'rm',
-                       'lo', 'ex', 'pf'], ['ns', 'no', 'sys', 'all'])]
+    positional_args = [
+        ('f', '--recursive -f', ['g', 'd', 'rm'], res_types + ['all', 'l', 'sys']),
+        ('l', '-l', ['g', 'd', 'rm'], ['f', 'all']),
+        ('n', '--namespace', 
+            ['g', 'd', 'rm', 'lo', 'ex', 'pf', 'ed', 'uc', 'cc', 'sc', 'dc'],
+            ['ns', 'no', 'sys', 'all']
+        )
+    ]
 
     # [(part, optional, take_exactly_one)]
     parts = [
